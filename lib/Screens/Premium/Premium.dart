@@ -183,9 +183,8 @@ class BottomSheetWidget extends StatefulWidget{
 
 class _BottomSheetWidgetState extends State<BottomSheetWidget> {
   @override
-  Widget build(BuildContext context) => DraggableScrollableSheet(
-    initialChildSize:0.68,
-    builder: (_, controller) => Container(
+  Widget build(BuildContext context) => Container(
+    height: 480,
       padding: EdgeInsets.all(0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -531,6 +530,5 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
           ),
         ],
       ),
-    ),
-  );
+    );
 }

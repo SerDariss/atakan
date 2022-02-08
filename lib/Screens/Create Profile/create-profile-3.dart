@@ -1,3 +1,4 @@
+import 'package:atakan/Components/BottomNavBar2.dart';
 import 'package:atakan/Screens/Account/hesabim.dart';
 import 'package:atakan/Screens/Create%20Profile/create-profile-2.dart';
 import 'package:atakan/Screens/Create%20Profile/create-profile.dart';
@@ -163,6 +164,41 @@ class BottomSheetWidget extends StatefulWidget{
 }
 
 class _BottomSheetWidgetState extends State<BottomSheetWidget> {
+
+  List<Color> _colors = <Color>[
+    Colors.white,
+    Colors.transparent,
+  ];
+
+  int _currentColorIndex = 0;
+
+  void _incrementColorIndex() {
+    setState(() {
+      if (_currentColorIndex < _colors.length - 1) {
+        _currentColorIndex++;
+      } else {
+        _currentColorIndex = 0;
+      }
+    });
+  }
+
+  List<Color> _colors2 = <Color>[
+    Colors.transparent,
+    Colors.white,
+  ];
+
+  int _currentColorIndex2 = 0;
+
+  void _incrementColorIndex2() {
+    setState(() {
+      if (_currentColorIndex < _colors.length - 1) {
+        _currentColorIndex++;
+      } else {
+        _currentColorIndex = 0;
+      }
+    });
+  }
+
   List<bool> isSelected = [true, false];
 
   @override
@@ -204,58 +240,61 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                 child: Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left:8, bottom:0, right:0, top:0),
+                      padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
                       child:Container(
+                        margin: EdgeInsets.only(left:5, bottom:0, right:0, top: 0),
+                        padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
                         height: 40,
-                        child: ToggleButtons(
-                            isSelected: isSelected,
-                            selectedColor: Colors.black,
-                            color: Colors.white,
-                            fillColor: Colors.white,
-                            renderBorder: false,
-                            borderRadius:BorderRadius.all(Radius.circular(20.0)),
-                            children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                child:Container(
-                                  margin: EdgeInsets.only(left:20, bottom:0, right:0, top: 0),
-                                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                  height: 20,
-                                  width: 150,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                  ),
-                                  child: Text("EV'DE ÇALIŞACAĞIM", style: TextStyle(fontSize: 14.0),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(left:10, bottom:0, right:5, top:0),
-                                child:Container(
-                                  margin: EdgeInsets.only(left:5, bottom:0, right:0, top: 0),
-                                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                  height: 20,
-                                  width: 160,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                  ),
-                                  child: Text("SALON'DA ÇALIŞACAĞIM", style: TextStyle(fontSize: 14.0),
-                                  ),
-                                ),
-                              ),
-                            ],
-                            onPressed: (int newIndex) {
-                              setState(() {
-                                for (int index = 0; index < isSelected.length; index++) {
-                                  if (index == newIndex) {
-                                    isSelected[index] = true;
-                                  } else {
-                                    isSelected[index] = false;
-                                  }
-                                }
-                                },);
-                            }
+                        width: 180,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                          color: _colors[_currentColorIndex],
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            _incrementColorIndex();
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.only(top:10),
+                            child: Text(
+                              "EV'DE ÇALIŞACAĞIM",
+                              style: TextStyle(
+                                  decoration: TextDecoration.none,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14.0),
+                              textAlign: TextAlign.center,
                             ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                      child:Container(
+                        margin: EdgeInsets.only(left:0, bottom:0, right:0, top: 0),
+                        padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                        height: 40,
+                        width: 174,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                          color: _colors2[_currentColorIndex],
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            _incrementColorIndex2();
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.only(top:10),
+                            child: Text(
+                              "SALON'DA ÇALIŞACAĞIM",
+                              style: TextStyle(
+                                  decoration: TextDecoration.none,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14.0),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -437,7 +476,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
           child:Container(
               child: GestureDetector(
                 onTap: (){
-                  Get.to(HesabimPage());
+                  Get.to(BottomNavBar2());
                 },
                 child: Container(
                   height: 50.0,

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:atakan/Screens/Login/login_screen.dart';
 import 'package:atakan/Screens/Register/register_screen.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:timer_count_down/timer_count_down.dart';
 
 class RegisterPage2 extends StatefulWidget {
   @override
@@ -248,16 +249,34 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.all(Radius.circular(50.0)),
                     ),
-                    child: Center(
-                      //timer eklenecek
-                      child: Text('YENİ KOD GÖNDER  (0:35) ', style: TextStyle(color: Colors.grey, fontSize: 18.0),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 80, bottom:0, right:10, top:0),
+                          child: Text('YENİ KOD GÖNDER', style: TextStyle(color: Colors.grey, fontSize: 18.0),),
+                        ),
+                        Countdown(
+                          seconds: 50,
+                          build: (_, double time) => Text(
+                            time.toString(),
+                            style: TextStyle(color: Colors.grey, fontSize: 18.0),
+                          ),
+                          interval: Duration(milliseconds: 1000),
+                          onFinished: (){
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Zamanın doldu!'),
+                              ),
+                            );
+                          },
+                        ),
+                      ],
                       ),
                     ),
                   ),
                 )
             ),
-          ),
-        ],
-      )
+          ],
+      ),
   );
 }

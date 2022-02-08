@@ -1,8 +1,14 @@
 import 'package:atakan/Components/AtakanIcons.dart';
+import 'package:atakan/Components/BottomNavBar2.dart';
+import 'package:atakan/Components/BottomNavBar3.dart';
+import 'package:atakan/Components/BottomNavBar4.dart';
+import 'package:atakan/Screens/Account/hesabim.dart';
 import 'package:atakan/Screens/Antrenman/antrenman.dart';
 import 'package:atakan/Screens/Antrenman/guidence-1.dart';
+import 'package:atakan/Screens/Ayarlar/ayarlar.dart';
 import 'package:atakan/Screens/Beslenme/beslenme_screen.dart';
 import 'package:atakan/Screens/Beslenme/guidence-2.dart';
+import 'package:atakan/Screens/Canl%C4%B1%20Yay%C4%B1n/canl%C4%B1_yay%C4%B1n_takvimi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:atakan/Components/NavBar.dart';
@@ -13,6 +19,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
+
+  int _currentIndex = 0;
+
+  final screens = [
+    HomePage(),
+    AntrenmanPage(),
+    CanliYayinPage(),
+    BeslenmePage(),
+    HesabimPage(),
+  ];
+
   @override
   Widget build(BuildContext context) =>
       Scaffold(
@@ -124,43 +141,6 @@ class _HomePage extends State<HomePage> {
             ],
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            items: const [
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage("assets/home.png"),
-                  color: Colors.deepOrange,
-                ),
-                title: Text('Anasayfa',style: TextStyle(color: Colors.deepOrange, fontSize: 15.0),),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(AtakanIcons.barbell_2,color: Colors.white, size:25,),
-                title: Text('Antrenman',style: TextStyle(color: Colors.white, fontSize: 15.0),),
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage("assets/yay.png"),
-                  color: Colors.white,
-                ),
-                title: Text('Canlı Yayın',style: TextStyle(color: Colors.white, fontSize: 15.0),),
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage("assets/ye.png"),
-                  color: Colors.white,
-                ),
-                title: Text('Beslenme',style: TextStyle(color: Colors.white, fontSize: 15.0),),
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage("assets/pe.png"),
-                  color: Colors.white,
-                ),
-                title: Text('Hesabım',style: TextStyle(color: Colors.white, fontSize: 15.0),),
-              ),
-            ]
-        ),
         bottomSheet: BottomSheetWidget(
         ),
       );
@@ -176,6 +156,7 @@ class BottomSheetWidget extends StatefulWidget{
 }
 
 class _BottomSheetWidgetState extends State<BottomSheetWidget> {
+  final List people = ['Hikayen', 'Atakan A.', 'Gizem M.', 'Mert T.', 'Tupba H.', 'Ahmet H'];
   @override
   Widget build(BuildContext context) => Container(
     height: 380,
@@ -275,11 +256,16 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(30)),
                 ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/ayar-tru.png'),
-                      scale: 2,
+                child: GestureDetector(
+                  onTap: (){
+                    Get.to(AyarlarPage());
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/ayar-tru.png'),
+                        scale: 2,
+                      ),
                     ),
                   ),
                 ),
@@ -291,200 +277,235 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                   ]
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 0, bottom:0, right:0, top:0),
-                  padding: EdgeInsets.only(left: 5, bottom:0, right:5, top: 0),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                    gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [
-                        Colors.white,
-                        Colors.white,
-                      ],
-                    ),
-                    borderRadius: BorderRadius.all(Radius.zero),
-                  ),
-                  child: Row(
-                  children:[
-                    Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(left:15, bottom:0, right:0, top: 10),
-                          child: Container(
-                            alignment: Alignment.centerLeft,
-                            child:(
-                                Text("HİKAYELER", style: TextStyle(color: Colors.grey, fontSize: 15.0),
-                                )
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left:10, bottom:5, right:0, top:10),
-                          padding: EdgeInsets.only(left:30, bottom:60, right:30, top:0),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage('assets/Hikayen.png'),
-                                fit: BoxFit.fill
-                            ),
-                            gradient: LinearGradient(
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                              colors: [
-                                Colors.white,
-                                Colors.white,
-                              ],
-                            ),
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 22, bottom:15, right:15, top: 0),
-                          child: Container(
-                            alignment: Alignment.centerLeft,
-                            child:(
-                                Text("Hikayen", style: TextStyle(color: Colors.grey, fontSize: 13.0),
-                                )
-                            ),
-                          ),
-                        ),
-                      ]
-                  ),
-                    Column(
-                    children: [
-                      Container(
-                      margin: EdgeInsets.only(left: 10, bottom:0, right:0, top:24),
-                      padding: EdgeInsets.only(left:30, bottom:60, right:30, top:0),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/Atakan.png'),
-                            fit: BoxFit.fill
-                        ),
-                        gradient: LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: [
-                            Colors.white,
-                            Colors.white,
-                          ],
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                    margin: EdgeInsets.only(left: 0, bottom:0, right:0, top:0),
+                    padding: EdgeInsets.only(left: 5, bottom:0, right:5, top: 0),
+                    height: 135,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      gradient: LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        colors: [
+                          Colors.white,
+                          Colors.white,
+                        ],
                       ),
+                      borderRadius: BorderRadius.all(Radius.zero),
                     ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 10, bottom:0, right:0, top: 5),
-                        child: Container(
-                          alignment: Alignment.centerLeft,
-                          child:(
-                              Text("Atakan A.", style: TextStyle(color: Colors.black, fontSize: 13.0),
-                              )
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                        children:[
+                          Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(left:15, bottom:0, right:0, top: 10),
+                                  child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    child:(
+                                        Text("HİKAYELER", style: TextStyle(color: Colors.grey, fontSize: 15.0),
+                                        )
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(left:10, bottom:5, right:0, top:10),
+                                  padding: EdgeInsets.only(left:30, bottom:60, right:30, top:0),
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage('assets/Hikayen.png'),
+                                        fit: BoxFit.fill
+                                    ),
+                                    gradient: LinearGradient(
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
+                                      colors: [
+                                        Colors.white,
+                                        Colors.white,
+                                      ],
+                                    ),
+                                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 22, bottom:15, right:15, top: 0),
+                                  child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    child:(
+                                        Text("Hikayen", style: TextStyle(color: Colors.grey, fontSize: 13.0),
+                                        )
+                                    ),
+                                  ),
+                                ),
+                              ]
                           ),
-                        ),
-                      ),
-                    ]
-                    ),
-                    Column(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(left: 10, bottom:0, right:0, top:24),
-                            padding: EdgeInsets.only(left:30, bottom:60, right:30, top:0),
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage('assets/Gizem.png'),
-                                  fit: BoxFit.fill
-                              ),
-                              gradient: LinearGradient(
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                                colors: [
-                                  Colors.white,
-                                  Colors.white,
-                                ],
-                              ),
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                            ),
+                          Column(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(left: 10, bottom:0, right:0, top:38),
+                                  padding: EdgeInsets.only(left:30, bottom:60, right:30, top:0),
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage('assets/Atakan.png'),
+                                        fit: BoxFit.fill
+                                    ),
+                                    gradient: LinearGradient(
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
+                                      colors: [
+                                        Colors.white,
+                                        Colors.white,
+                                      ],
+                                    ),
+                                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 10, bottom:0, right:0, top: 5),
+                                  child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    child:(
+                                        Text("Atakan A.", style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                        )
+                                    ),
+                                  ),
+                                ),
+                              ]
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10, bottom:0, right:0, top: 5),
-                            child: Container(
-                              alignment: Alignment.centerLeft,
-                              child:(
-                                  Text("Gizem M.", style: TextStyle(color: Colors.black, fontSize: 13.0),
-                                  )
-                              ),
-                            ),
+                          Column(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(left: 10, bottom:0, right:0, top:38),
+                                  padding: EdgeInsets.only(left:30, bottom:60, right:30, top:0),
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage('assets/Gizem.png'),
+                                        fit: BoxFit.fill
+                                    ),
+                                    gradient: LinearGradient(
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
+                                      colors: [
+                                        Colors.white,
+                                        Colors.white,
+                                      ],
+                                    ),
+                                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 10, bottom:0, right:0, top: 5),
+                                  child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    child:(
+                                        Text("Gizem M.", style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                        )
+                                    ),
+                                  ),
+                                ),
+                              ]
+                          ),
+                          Column(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(left: 10, bottom:0, right:0, top:38),
+                                  padding: EdgeInsets.only(left:30, bottom:60, right:30, top:0),
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage('assets/Mert.png'),
+                                        fit: BoxFit.fill
+                                    ),
+                                    gradient: LinearGradient(
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
+                                      colors: [
+                                        Colors.white,
+                                        Colors.white,
+                                      ],
+                                    ),
+                                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 10, bottom:0, right:0, top: 5),
+                                  child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    child:(
+                                        Text("Mert T.", style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                        )
+                                    ),
+                                  ),
+                                ),
+                              ]
+                          ),
+                          Column(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(left: 10, bottom:0, right:0, top:38),
+                                  padding: EdgeInsets.only(left:30, bottom:60, right:30, top:0),
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage('assets/Tuğba.png'),
+                                        fit: BoxFit.fill
+                                    ),
+                                    gradient: LinearGradient(
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
+                                      colors: [
+                                        Colors.white,
+                                        Colors.white,
+                                      ],
+                                    ),
+                                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 10, bottom:0, right:0, top: 5),
+                                  child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    child:(
+                                        Text("Tuğba H.", style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                        )
+                                    ),
+                                  ),
+                                ),
+                              ]
+                          ),
+                          Column(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(left: 10, bottom:0, right:0, top:38),
+                                  padding: EdgeInsets.only(left:30, bottom:60, right:30, top:0),
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage('assets/Tuğba.png'),
+                                        fit: BoxFit.fill
+                                    ),
+                                    gradient: LinearGradient(
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
+                                      colors: [
+                                        Colors.white,
+                                        Colors.white,
+                                      ],
+                                    ),
+                                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 10, bottom:0, right:0, top: 5),
+                                  child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    child:(
+                                        Text("Tuğba H.", style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                        )
+                                    ),
+                                  ),
+                                ),
+                              ]
                           ),
                         ]
-                    ),
-                    Column(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(left: 10, bottom:0, right:0, top:24),
-                            padding: EdgeInsets.only(left:30, bottom:60, right:30, top:0),
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage('assets/Mert.png'),
-                                  fit: BoxFit.fill
-                              ),
-                              gradient: LinearGradient(
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                                colors: [
-                                  Colors.white,
-                                  Colors.white,
-                                ],
-                              ),
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10, bottom:0, right:0, top: 5),
-                            child: Container(
-                              alignment: Alignment.centerLeft,
-                              child:(
-                                  Text("Mert T.", style: TextStyle(color: Colors.black, fontSize: 13.0),
-                                  )
-                              ),
-                            ),
-                          ),
-                        ]
-                    ),
-                    Column(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(left: 10, bottom:0, right:0, top:24),
-                            padding: EdgeInsets.only(left:30, bottom:60, right:30, top:0),
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage('assets/Tuğba.png'),
-                                  fit: BoxFit.fill
-                              ),
-                              gradient: LinearGradient(
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                                colors: [
-                                  Colors.white,
-                                  Colors.white,
-                                ],
-                              ),
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10, bottom:0, right:0, top: 5),
-                            child: Container(
-                              alignment: Alignment.centerLeft,
-                              child:(
-                                  Text("Tuğba H.", style: TextStyle(color: Colors.black, fontSize: 13.0),
-                                  )
-                              ),
-                            ),
-                          ),
-                        ]
-                    ),
-                      ]
-                      )
+                    )
                 ),
                 Stack(
                   children: [
@@ -522,7 +543,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                                   child:Container(
                                       child: GestureDetector(
                                         onTap: (){
-                                          Get.to(AntrenmanPage());
+                                          Get.to(BottomNavBar3());
                                         },
                                         child: Container(
                                           height: 80.0,
@@ -648,7 +669,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                                   child:Container(
                                       child: GestureDetector(
                                         onTap: (){
-                                          Get.to(BeslenmePage());
+                                          Get.to(BottomNavBar4());
                                         },
                                         child: Container(
                                           height: 80.0,
@@ -733,7 +754,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                 ),
               ],
           ),
-        ]
-    ),
+  ]
+  ),
   );
 }

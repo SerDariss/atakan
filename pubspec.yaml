@@ -33,6 +33,9 @@ dependencies:
   carousel_slider: ^4.0.0
   smooth_page_indicator: ^1.0.0+2
   simple_gradient_text: ^1.2.2
+  timer_count_down: ^2.2.1
+  youtube_player_flutter: ^8.0.0
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -129,6 +132,9 @@ flutter:
    - assets/par1.png
    - assets/per1.png
    - assets/ma1.png
+   - assets/notb.png
+   - assets/ses.png
+   - assets/video.mp4
 
 
        # An image asset can refer to one or more resolution-specific "variants", see

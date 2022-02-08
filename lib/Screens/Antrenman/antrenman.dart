@@ -128,43 +128,6 @@ class _AntrenmanPage extends State<AntrenmanPage> {
             ],
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            items: const [
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage("assets/home.png"),
-                  color: Colors.white,
-                ),
-                title: Text('Anasayfa',style: TextStyle(color: Colors.white, fontSize: 15.0),),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(AtakanIcons.barbell_2,color: Colors.deepOrange, size:25,),
-                title: Text('Antrenman',style: TextStyle(color: Colors.deepOrange, fontSize: 15.0),),
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage("assets/yay.png"),
-                  color: Colors.white,
-                ),
-                title: Text('Canlı Yayın',style: TextStyle(color: Colors.white, fontSize: 15.0),),
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage("assets/ye.png"),
-                  color: Colors.white,
-                ),
-                title: Text('Beslenme',style: TextStyle(color: Colors.white, fontSize: 15.0),),
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage("assets/pe.png"),
-                  color: Colors.white,
-                ),
-                title: Text('Hesabım',style: TextStyle(color: Colors.white, fontSize: 15.0),),
-              ),
-            ]
-        ),
         bottomSheet: BottomSheetWidget(
         ),
       );
@@ -188,10 +151,9 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
     'assets/içerik2.png'
   ];
   @override
-  Widget build(BuildContext context) => DraggableScrollableSheet(
-    initialChildSize:0.68,
-    builder: (_, controller) => Container(
+  Widget build(BuildContext context) => Container(
       padding: EdgeInsets.all(0),
+      height: 490,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),
@@ -275,8 +237,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
             ),
           ]
       ),
-    ),
-  );
+    );
   Widget buildImage(String assetImage, int index) => Container(
     child: Stack(
       children: [
@@ -416,7 +377,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
   Widget buildImage2(String assetImage, int index) => Container(
     child: GestureDetector(
       onTap: (){
-        Get.to(VideoPage());
+        Get.to(VideoPage(title: '',));
         },
     child: Stack(
       children: [

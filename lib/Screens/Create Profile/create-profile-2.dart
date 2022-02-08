@@ -162,6 +162,212 @@ class BottomSheetWidget extends StatefulWidget{
 }
 
 class _BottomSheetWidgetState extends State<BottomSheetWidget> {
+
+  List<Color> _colors = <Color>[
+    Colors.white,
+    Colors.transparent,
+  ];
+
+  int _currentColorIndex = 0;
+
+  void _incrementColorIndex() {
+    setState(() {
+      if (_currentColorIndex < _colors.length - 1) {
+        _currentColorIndex++;
+      } else {
+        _currentColorIndex = 0;
+      }
+    });
+  }
+
+  List<Color> _colors2 = <Color>[
+    Colors.transparent,
+    Colors.white,
+  ];
+
+  int _currentColorIndex2 = 0;
+
+  void _incrementColorIndex2() {
+    setState(() {
+      if (_currentColorIndex < _colors.length - 1) {
+        _currentColorIndex++;
+      } else {
+        _currentColorIndex = 0;
+      }
+    });
+  }
+
+  List<Color> _colors3 = <Color>[
+    Colors.white,
+    Colors.transparent,
+  ];
+
+  int _currentColorIndex3 = 0;
+
+  void _incrementColorIndex3() {
+    setState(() {
+      if (_currentColorIndex3< _colors.length - 1) {
+        _currentColorIndex3++;
+      } else {
+        _currentColorIndex3= 0;
+      }
+    });
+  }
+
+  List<Color> _colors4 = <Color>[
+    Colors.transparent,
+    Colors.white,
+  ];
+
+  int _currentColorIndex4 = 0;
+
+  void _incrementColorIndex4() {
+    setState(() {
+      if (_currentColorIndex3< _colors.length - 1) {
+        _currentColorIndex3++;
+      } else {
+        _currentColorIndex3= 0;
+      }
+    });
+  }
+
+  List<Color> _colors5 = <Color>[
+    Colors.white,
+    Colors.transparent,
+  ];
+
+  int _currentColorIndex5 = 0;
+
+  void _incrementColorIndex5() {
+    setState(() {
+      if (_currentColorIndex5< _colors.length - 1) {
+        _currentColorIndex5++;
+      } else {
+        _currentColorIndex5= 0;
+      }
+    });
+  }
+
+  List<Color> _colors6 = <Color>[
+    Colors.transparent,
+    Colors.white,
+  ];
+
+  int _currentColorIndex6 = 0;
+
+  void _incrementColorIndex6() {
+    setState(() {
+      if (_currentColorIndex5< _colors.length - 1) {
+        _currentColorIndex5++;
+      } else {
+        _currentColorIndex5= 0;
+      }
+    });
+  }
+
+  List<Color> _colors7 = <Color>[
+    Colors.white,
+    Colors.transparent,
+  ];
+
+  int _currentColorIndex7 = 0;
+
+  void _incrementColorIndex7() {
+    setState(() {
+      if (_currentColorIndex7< _colors.length - 1) {
+        _currentColorIndex7++;
+      } else {
+        _currentColorIndex7= 0;
+      }
+    });
+  }
+
+  List<Color> _colors8 = <Color>[
+    Colors.transparent,
+    Colors.white,
+  ];
+
+  int _currentColorIndex8 = 0;
+
+  void _incrementColorIndex8() {
+    setState(() {
+      if (_currentColorIndex7< _colors.length - 1) {
+        _currentColorIndex7++;
+      } else {
+        _currentColorIndex7= 0;
+      }
+    });
+  }
+
+  List<Color> _colors9 = <Color>[
+    Colors.white,
+    Colors.transparent,
+  ];
+
+  int _currentColorIndex9 = 0;
+
+  void _incrementColorIndex9() {
+    setState(() {
+      if (_currentColorIndex9< _colors.length - 1) {
+        _currentColorIndex9++;
+      } else {
+        _currentColorIndex9= 0;
+      }
+    });
+  }
+
+  List<Color> _colors10 = <Color>[
+    Colors.transparent,
+    Colors.white,
+  ];
+
+  int _currentColorIndex10 = 0;
+
+  void _incrementColorIndex10() {
+    setState(() {
+      if (_currentColorIndex9< _colors.length - 1) {
+        _currentColorIndex9++;
+      } else {
+        _currentColorIndex9= 0;
+      }
+    });
+  }
+
+  List<Color> _colors11 = <Color>[
+    Colors.white,
+    Colors.transparent,
+  ];
+
+  int _currentColorIndex11 = 0;
+
+  void _incrementColorIndex11() {
+    setState(() {
+      if (_currentColorIndex11< _colors.length - 1) {
+        _currentColorIndex11++;
+      } else {
+        _currentColorIndex11= 0;
+      }
+    });
+  }
+
+  List<Color> _colors12 = <Color>[
+    Colors.transparent,
+    Colors.white,
+  ];
+
+  int _currentColorIndex12 = 0;
+
+  void _incrementColorIndex12() {
+    setState(() {
+      if (_currentColorIndex11< _colors.length - 1) {
+        _currentColorIndex11++;
+      } else {
+        _currentColorIndex11= 0;
+      }
+    });
+  }
+
+
   List<bool> isSelected = [true, false];
   List<bool> isSelected2 = [true, false];
   List<bool> isSelected3 = [true, false];
@@ -226,57 +432,60 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                           child: Row(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(left:5, bottom:0, right:5, top:0),
+                                padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
                                 child:Container(
+                                  margin: EdgeInsets.only(left:5, bottom:0, right:0, top: 0),
+                                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
                                   height: 40,
-                                  child: ToggleButtons(
-                                      isSelected: isSelected,
-                                      selectedColor: Colors.black,
-                                      color: Colors.white,
-                                      fillColor: Colors.white,
-                                      renderBorder: false,
-                                      borderRadius:BorderRadius.all(Radius.circular(20.0)),
-                                      children: <Widget>[
-                                        Padding(
-                                          padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                          child:Container(
-                                            margin: EdgeInsets.only(left:20, bottom:0, right:10, top: 0),
-                                            padding: EdgeInsets.only(left:25, bottom:0, right:0, top:0),
-                                            height: 20,
-                                            width: 90,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                            ),
-                                            child: Text('HAYIR', style: TextStyle(fontSize: 16.0),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                          child:Container(
-                                            margin: EdgeInsets.only(left:20, bottom:0, right:10, top: 0),
-                                            padding: EdgeInsets.only(left:25, bottom:0, right:0, top:0),
-                                            height: 20,
-                                            width: 90,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                            ),
-                                            child: Text('EVET', style: TextStyle(fontSize: 16.0),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                      onPressed: (int newIndex) {
-                                        setState(() {
-                                          for (int index = 0; index < isSelected.length; index++) {
-                                            if (index == newIndex) {
-                                              isSelected[index] = true;
-                                            } else {
-                                              isSelected[index] = false;
-                                            }
-                                          }
-                                        },);
-                                      }
+                                  width: 120,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                                    color: _colors[_currentColorIndex],
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      _incrementColorIndex();
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top:10),
+                                      child: Text(
+                                        "EVET",
+                                        style: TextStyle(
+                                            decoration: TextDecoration.none,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16.0),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                                child:Container(
+                                  margin: EdgeInsets.only(left:0, bottom:0, right:0, top: 0),
+                                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                                  height: 40,
+                                  width: 120,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                                    color: _colors2[_currentColorIndex],
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      _incrementColorIndex2();
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top:10),
+                                      child: Text(
+                                        "HAYIR",
+                                        style: TextStyle(
+                                            decoration: TextDecoration.none,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16.0),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -327,57 +536,60 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                           child: Row(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(left:5, bottom:0, right:5, top:0),
+                                padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
                                 child:Container(
+                                  margin: EdgeInsets.only(left:5, bottom:0, right:0, top: 0),
+                                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
                                   height: 40,
-                                  child: ToggleButtons(
-                                      isSelected: isSelected2,
-                                      selectedColor: Colors.black,
-                                      color: Colors.white,
-                                      fillColor: Colors.white,
-                                      renderBorder: false,
-                                      borderRadius:BorderRadius.all(Radius.circular(20.0)),
-                                      children: <Widget>[
-                                        Padding(
-                                          padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                          child:Container(
-                                            margin: EdgeInsets.only(left:20, bottom:0, right:10, top: 0),
-                                            padding: EdgeInsets.only(left:25, bottom:0, right:0, top:0),
-                                            height: 20,
-                                            width: 90,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                            ),
-                                            child: Text('HAYIR', style: TextStyle(fontSize: 16.0),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                          child:Container(
-                                            margin: EdgeInsets.only(left:20, bottom:0, right:10, top: 0),
-                                            padding: EdgeInsets.only(left:25, bottom:0, right:0, top:0),
-                                            height: 20,
-                                            width: 90,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                            ),
-                                            child: Text('EVET', style: TextStyle(fontSize: 16.0),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                      onPressed: (int newIndex) {
-                                        setState(() {
-                                          for (int index = 0; index < isSelected2.length; index++) {
-                                            if (index == newIndex) {
-                                              isSelected2[index] = true;
-                                            } else {
-                                              isSelected2[index] = false;
-                                            }
-                                          }
-                                        },);
-                                      }
+                                  width: 120,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                                    color: _colors3[_currentColorIndex3],
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      _incrementColorIndex3();
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top:10),
+                                      child: Text(
+                                        "EVET",
+                                        style: TextStyle(
+                                            decoration: TextDecoration.none,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16.0),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                                child:Container(
+                                  margin: EdgeInsets.only(left:0, bottom:0, right:0, top: 0),
+                                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                                  height: 40,
+                                  width: 120,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                                    color: _colors4[_currentColorIndex3],
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      _incrementColorIndex4();
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top:10),
+                                      child: Text(
+                                        "HAYIR",
+                                        style: TextStyle(
+                                            decoration: TextDecoration.none,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16.0),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -456,64 +668,67 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
                           ),
                           child: Row(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(left:5, bottom:0, right:5, top:0),
-                                child:Container(
-                                  height: 40,
-                                  child: ToggleButtons(
-                                      isSelected: isSelected3,
-                                      selectedColor: Colors.black,
-                                      color: Colors.white,
-                                      fillColor: Colors.white,
-                                      renderBorder: false,
-                                      borderRadius:BorderRadius.all(Radius.circular(20.0)),
-                                      children: <Widget>[
-                                        Padding(
-                                          padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                          child:Container(
-                                            margin: EdgeInsets.only(left:20, bottom:0, right:10, top: 0),
-                                            padding: EdgeInsets.only(left:25, bottom:0, right:0, top:0),
-                                            height: 20,
-                                            width: 90,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                            ),
-                                            child: Text('HAYIR', style: TextStyle(fontSize: 16.0),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                          child:Container(
-                                            margin: EdgeInsets.only(left:20, bottom:0, right:10, top: 0),
-                                            padding: EdgeInsets.only(left:25, bottom:0, right:0, top:0),
-                                            height: 20,
-                                            width: 90,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                            ),
-                                            child: Text('EVET', style: TextStyle(fontSize: 16.0),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                      onPressed: (int newIndex) {
-                                        setState(() {
-                                          for (int index = 0; index < isSelected3.length; index++) {
-                                            if (index == newIndex) {
-                                              isSelected3[index] = true;
-                                            } else {
-                                              isSelected3[index] = false;
-                                            }
-                                          }
-                                        },);
-                                      }
-                                  ),
-                                ),
-                              ),
-                            ],
+                        children: [
+                        Padding(
+                        padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                        child:Container(
+                          margin: EdgeInsets.only(left:5, bottom:0, right:0, top: 0),
+                          padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                          height: 40,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                            color: _colors5[_currentColorIndex5],
                           ),
+                          child: GestureDetector(
+                            onTap: () {
+                              _incrementColorIndex5();
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(top:10),
+                              child: Text(
+                                "EVET",
+                                style: TextStyle(
+                                    decoration: TextDecoration.none,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16.0),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                        child:Container(
+                          margin: EdgeInsets.only(left:0, bottom:0, right:0, top: 0),
+                          padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                          height: 40,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                            color: _colors6[_currentColorIndex5],
+                          ),
+                          child: GestureDetector(
+                            onTap: () {
+                              _incrementColorIndex6();
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(top:10),
+                              child: Text(
+                                "HAYIR",
+                                style: TextStyle(
+                                    decoration: TextDecoration.none,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16.0),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                         ),
                       ),
                     ],
@@ -553,60 +768,63 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                             ),
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
                           ),
-                          child: Row(
+                          child:Row(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(left:5, bottom:0, right:5, top:0),
+                                padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
                                 child:Container(
+                                  margin: EdgeInsets.only(left:5, bottom:0, right:0, top: 0),
+                                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
                                   height: 40,
-                                  child: ToggleButtons(
-                                      isSelected: isSelected4,
-                                      selectedColor: Colors.black,
-                                      color: Colors.white,
-                                      fillColor: Colors.white,
-                                      renderBorder: false,
-                                      borderRadius:BorderRadius.all(Radius.circular(20.0)),
-                                      children: <Widget>[
-                                        Padding(
-                                          padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                          child:Container(
-                                            margin: EdgeInsets.only(left:20, bottom:0, right:10, top: 0),
-                                            padding: EdgeInsets.only(left:25, bottom:0, right:0, top:0),
-                                            height: 20,
-                                            width: 90,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                            ),
-                                            child: Text('HAYIR', style: TextStyle(fontSize: 16.0),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                          child:Container(
-                                            margin: EdgeInsets.only(left:20, bottom:0, right:10, top: 0),
-                                            padding: EdgeInsets.only(left:25, bottom:0, right:0, top:0),
-                                            height: 20,
-                                            width: 90,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                            ),
-                                            child: Text('EVET', style: TextStyle(fontSize: 16.0),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                      onPressed: (int newIndex) {
-                                        setState(() {
-                                          for (int index = 0; index < isSelected4.length; index++) {
-                                            if (index == newIndex) {
-                                              isSelected4[index] = true;
-                                            } else {
-                                              isSelected4[index] = false;
-                                            }
-                                          }
-                                        },);
-                                      }
+                                  width: 120,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                                    color: _colors7[_currentColorIndex7],
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      _incrementColorIndex7();
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top:10),
+                                      child: Text(
+                                        "EVET",
+                                        style: TextStyle(
+                                            decoration: TextDecoration.none,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16.0),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                                child:Container(
+                                  margin: EdgeInsets.only(left:0, bottom:0, right:0, top: 0),
+                                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                                  height: 40,
+                                  width: 120,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                                    color: _colors8[_currentColorIndex7],
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      _incrementColorIndex8();
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top:10),
+                                      child: Text(
+                                        "HAYIR",
+                                        style: TextStyle(
+                                            decoration: TextDecoration.none,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16.0),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -654,57 +872,60 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                           child: Row(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(left:5, bottom:0, right:5, top:0),
+                                padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
                                 child:Container(
+                                  margin: EdgeInsets.only(left:5, bottom:0, right:0, top: 0),
+                                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
                                   height: 40,
-                                  child: ToggleButtons(
-                                      isSelected: isSelected5,
-                                      selectedColor: Colors.black,
-                                      color: Colors.white,
-                                      fillColor: Colors.white,
-                                      renderBorder: false,
-                                      borderRadius:BorderRadius.all(Radius.circular(20.0)),
-                                      children: <Widget>[
-                                        Padding(
-                                          padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                          child:Container(
-                                            margin: EdgeInsets.only(left:20, bottom:0, right:10, top: 0),
-                                            padding: EdgeInsets.only(left:25, bottom:0, right:0, top:0),
-                                            height: 20,
-                                            width: 90,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                            ),
-                                            child: Text('HAYIR', style: TextStyle(fontSize: 16.0),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                          child:Container(
-                                            margin: EdgeInsets.only(left:20, bottom:0, right:10, top: 0),
-                                            padding: EdgeInsets.only(left:25, bottom:0, right:0, top:0),
-                                            height: 20,
-                                            width: 90,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                            ),
-                                            child: Text('EVET', style: TextStyle(fontSize: 16.0),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                      onPressed: (int newIndex) {
-                                        setState(() {
-                                          for (int index = 0; index < isSelected4.length; index++) {
-                                            if (index == newIndex) {
-                                              isSelected5[index] = true;
-                                            } else {
-                                              isSelected5[index] = false;
-                                            }
-                                          }
-                                        },);
-                                      }
+                                  width: 120,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                                    color: _colors9[_currentColorIndex9],
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      _incrementColorIndex9();
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top:10),
+                                      child: Text(
+                                        "EVET",
+                                        style: TextStyle(
+                                            decoration: TextDecoration.none,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16.0),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                                child:Container(
+                                  margin: EdgeInsets.only(left:0, bottom:0, right:0, top: 0),
+                                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                                  height: 40,
+                                  width: 120,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                                    color: _colors10[_currentColorIndex9],
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      _incrementColorIndex10();
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top:10),
+                                      child: Text(
+                                        "HAYIR",
+                                        style: TextStyle(
+                                            decoration: TextDecoration.none,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16.0),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -749,60 +970,63 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                             ),
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
                           ),
-                          child: Row(
+                          child:  Row(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(left:5, bottom:0, right:5, top:0),
+                                padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
                                 child:Container(
+                                  margin: EdgeInsets.only(left:5, bottom:0, right:0, top: 0),
+                                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
                                   height: 40,
-                                  child: ToggleButtons(
-                                      isSelected: isSelected6,
-                                      selectedColor: Colors.black,
-                                      color: Colors.white,
-                                      fillColor: Colors.white,
-                                      renderBorder: false,
-                                      borderRadius:BorderRadius.all(Radius.circular(20.0)),
-                                      children: <Widget>[
-                                        Padding(
-                                          padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                          child:Container(
-                                            margin: EdgeInsets.only(left:20, bottom:0, right:10, top: 0),
-                                            padding: EdgeInsets.only(left:25, bottom:0, right:0, top:0),
-                                            height: 20,
-                                            width: 90,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                            ),
-                                            child: Text('AKTİF', style: TextStyle(fontSize: 16.0),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                          child:Container(
-                                            margin: EdgeInsets.only(left:20, bottom:0, right:10, top: 0),
-                                            padding: EdgeInsets.only(left:25, bottom:0, right:0, top:0),
-                                            height: 20,
-                                            width: 90,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                            ),
-                                            child: Text('PASİF', style: TextStyle(fontSize: 16.0),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                      onPressed: (int newIndex) {
-                                        setState(() {
-                                          for (int index = 0; index < isSelected6.length; index++) {
-                                            if (index == newIndex) {
-                                              isSelected6[index] = true;
-                                            } else {
-                                              isSelected6[index] = false;
-                                            }
-                                          }
-                                        },);
-                                      }
+                                  width: 120,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                                    color: _colors11[_currentColorIndex11],
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      _incrementColorIndex11();
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top:10),
+                                      child: Text(
+                                        "AKTİF",
+                                        style: TextStyle(
+                                            decoration: TextDecoration.none,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16.0),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                                child:Container(
+                                  margin: EdgeInsets.only(left:0, bottom:0, right:0, top: 0),
+                                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                                  height: 40,
+                                  width: 120,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                                    color: _colors12[_currentColorIndex11],
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      _incrementColorIndex12();
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top:10),
+                                      child: Text(
+                                        "PASİF",
+                                        style: TextStyle(
+                                            decoration: TextDecoration.none,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16.0),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),

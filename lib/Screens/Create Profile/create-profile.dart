@@ -163,7 +163,41 @@ class BottomSheetWidget extends StatefulWidget{
 class _BottomSheetWidgetState extends State<BottomSheetWidget> {
   List<bool> isSelected = [true, false];
 
-  int _count = 0;
+  List<Color> _colors = <Color>[
+    Colors.white,
+    Colors.transparent,
+  ];
+
+  int _currentColorIndex = 0;
+
+  void _incrementColorIndex() {
+    setState(() {
+      if (_currentColorIndex < _colors.length - 1) {
+        _currentColorIndex++;
+      } else {
+        _currentColorIndex = 0;
+      }
+    });
+  }
+
+  List<Color> _colors2 = <Color>[
+    Colors.transparent,
+    Colors.white,
+  ];
+
+  int _currentColorIndex2 = 0;
+
+  void _incrementColorIndex2() {
+    setState(() {
+      if (_currentColorIndex < _colors.length - 1) {
+        _currentColorIndex++;
+      } else {
+        _currentColorIndex = 0;
+      }
+    });
+  }
+
+  int _count = 20;
 
   void _incrementCount() {
     setState(() {
@@ -177,7 +211,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
     });
   }
 
-  int _count2 = 0;
+  int _count2 = 60;
 
   void _incrementCount2() {
     setState(() {
@@ -191,7 +225,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
     });
   }
 
-  int _count3 = 0;
+  int _count3 = 160;
 
   void _incrementCount3() {
     setState(() {
@@ -256,59 +290,62 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                                 child: Row(
                                   children: [
                                     Padding(
-                                        padding: EdgeInsets.only(left:8, bottom:0, right:0, top:0),
-                                        child:Container(
-                                          height: 40,
-                                          child: ToggleButtons(
-                                            isSelected: isSelected,
-                                            selectedColor: Colors.black,
-                                            color: Colors.white,
-                                            fillColor: Colors.white,
-                                            renderBorder: false,
-                                            borderRadius:BorderRadius.all(Radius.circular(20.0)),
-                                            children: <Widget>[
-                                              Padding(
-                                                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                                  child:Container(
-                                                    margin: EdgeInsets.only(left:20, bottom:0, right:10, top: 0),
-                                                    padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                                    height: 20,
-                                                    width: 50,
-                                                    decoration: BoxDecoration(
-                                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                                    ),
-                                                  child: Text('Erkek', style: TextStyle(fontSize: 18.0),
-                                                  ),
-                                                  ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                                child:Container(
-                                                  margin: EdgeInsets.only(left:20, bottom:0, right:10, top: 0),
-                                                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
-                                                  height: 20,
-                                                  width: 50,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                                  ),
-                                                  child: Text('Kadın', style: TextStyle(fontSize: 18.0),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                            onPressed: (int newIndex) {
-                                              setState(() {
-                                                for (int index = 0; index < isSelected.length; index++) {
-                                                  if (index == newIndex) {
-                                                    isSelected[index] = true;
-                                                  } else {
-                                                    isSelected[index] = false;
-                                                  }
-                                                }
-                                                },);
-                                            }
-                                            ),
+                                      padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                                      child:Container(
+                                        margin: EdgeInsets.only(left:20, bottom:0, right:0, top: 0),
+                                        padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                                        height: 40,
+                                        width: 70,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                                          color: _colors[_currentColorIndex],
                                         ),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            _incrementColorIndex();
+                                          },
+                                          child: Padding(
+                                            padding: EdgeInsets.only(top:10),
+                                            child: Text(
+                                              "Erkek",
+                                              style: TextStyle(
+                                                  decoration: TextDecoration.none,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 16.0),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                                      child:Container(
+                                        margin: EdgeInsets.only(left:0, bottom:0, right:0, top: 0),
+                                        padding: EdgeInsets.only(left:0, bottom:0, right:0, top:0),
+                                        height: 40,
+                                        width: 70,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                                          color: _colors2[_currentColorIndex],
+                                        ),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            _incrementColorIndex2();
+                                          },
+                                          child: Padding(
+                                            padding: EdgeInsets.only(top:10),
+                                            child: Text(
+                                              "Kadın",
+                                              style: TextStyle(
+                                                  decoration: TextDecoration.none,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 16.0),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),

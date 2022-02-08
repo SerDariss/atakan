@@ -78,7 +78,7 @@ class _RegisterPage extends State<RegisterPage> {
                             textStyle: const TextStyle(color: Colors.white, fontSize: 18),
                           ),
                           onPressed: () {
-                            Get.to(MyHomePage());
+                            Get.to(MyHomePage(swap: false,));
                           },
                           child: Text('GİRİŞ YAP', style: TextStyle(color: Colors.white, fontSize: 22.0),),
                         ),
@@ -105,6 +105,7 @@ class BottomSheetWidget extends StatefulWidget{
 }
 
 class _BottomSheetWidgetState extends State<BottomSheetWidget> {
+  bool value = false;
   @override
   Widget build(BuildContext context) => Container(
       padding: EdgeInsets.all(10),
@@ -261,32 +262,10 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(left:5, bottom:0, right:0, top: 0),
-                          child: Container(
-                            height: 20.0,
-                            width: 20.0,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  Colors.deepOrange,
-                                  Colors.deepOrange,
-                                ],
-                              ),
-                              borderRadius: BorderRadius.all(Radius.circular(30)),
-                            ),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage('assets/check.png'),
-                                  scale: 3,
-                                ),
-                              ),
-                            ),
-                          ),
+                          child: buildCheckbox(),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(left:10, bottom: 0, right:5, top:0),
+                          padding: EdgeInsets.only(left:0, bottom: 0, right:5, top:0),
                           child: Text('Kullanım şartlarını', style: TextStyle(color: Colors.deepOrange, fontSize: 16.0),),
                         ),
                         Padding(
@@ -329,5 +308,15 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
           ),
         ],
       )
+  );
+  Widget buildCheckbox() => Checkbox(
+    activeColor: Colors.deepOrange,
+    value: value,
+    shape: CircleBorder(),
+    onChanged: (value) {
+      setState(() {
+        this.value = value!;
+      });
+    },
   );
 }

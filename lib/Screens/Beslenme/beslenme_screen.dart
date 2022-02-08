@@ -128,43 +128,6 @@ class _BeslenmePage extends State<BeslenmePage> {
             ],
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            items: const [
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage("assets/home.png"),
-                  color: Colors.white,
-                ),
-                title: Text('Anasayfa',style: TextStyle(color: Colors.white, fontSize: 15.0),),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(AtakanIcons.barbell_2,color: Colors.white, size:25,),
-                title: Text('Antrenman',style: TextStyle(color: Colors.white, fontSize: 15.0),),
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage("assets/yay.png"),
-                  color: Colors.white,
-                ),
-                title: Text('Canlı Yayın',style: TextStyle(color: Colors.white, fontSize: 15.0),),
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage("assets/ye.png"),
-                  color: Colors.deepOrange,
-                ),
-                title: Text('Beslenme',style: TextStyle(color: Colors.deepOrange, fontSize: 15.0),),
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage("assets/pe.png"),
-                  color: Colors.white,
-                ),
-                title: Text('Hesabım',style: TextStyle(color: Colors.white, fontSize: 15.0),),
-              ),
-            ]
-        ),
         bottomSheet: BottomSheetWidget(
         ),
       );
@@ -206,7 +169,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                    child:Container(
                        child: GestureDetector(
                          onTap: (){
-                           Get.to(CanliYayinPage());
+                           Get.to;
                          },
                          child: Container(
                            height: 60.0,

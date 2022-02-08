@@ -1,9 +1,15 @@
+import 'package:atakan/Components/BottomNavBar2.dart';
+import 'package:atakan/Components/BottomNavBar3.dart';
+import 'package:atakan/Components/BottomNavBar4.dart';
+import 'package:atakan/Screens/%C4%B0ndirim/indirim.dart';
 import 'package:atakan/Screens/Account/hesabim.dart';
 import 'package:atakan/Screens/Antrenman/antrenman.dart';
 import 'package:atakan/Screens/Antrenman/guidence-1.dart';
+import 'package:atakan/Screens/Ayarlar/ayarlar.dart';
 import 'package:atakan/Screens/Beslenme/beslenme_screen.dart';
 import 'package:atakan/Screens/Beslenme/beslenme_screen_2.dart';
 import 'package:atakan/Screens/Beslenme/guidence-2.dart';
+import 'package:atakan/Screens/Create%20Profile/create-profile.dart';
 import 'package:atakan/Screens/Login/login_screen.dart';
 import 'package:atakan/Screens/Premium/Premium.dart';
 import 'package:atakan/Screens/Register/register_screen.dart';
@@ -12,6 +18,7 @@ import 'package:atakan/Components/AtakanIcons.dart';
 import 'package:get/get.dart';
 
 class NavBar  extends StatelessWidget {
+  final List<String> items = new List<String>.generate(30, (i)=>"Items ${i+1}");
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -184,7 +191,7 @@ class NavBar  extends StatelessWidget {
                 leading: Image(image: AssetImage('assets/person-gri.png'),height: 25,),
                 title: Text('HESABIM',style: TextStyle(color: Colors.black, fontSize: 13.0),),
                 onTap: (){
-                  Get.to(HesabimPage());
+                  Get.to(BottomNavBar2());
                 },
               ),
               ),
@@ -234,7 +241,7 @@ class NavBar  extends StatelessWidget {
                     leading: Icon(AtakanIcons.barbell_2,color: Colors.grey,size:30,),
                     title: Text('KİŞİSEL ANTRENMANLAR',style: TextStyle(color: Colors.black, fontSize: 13.0),),
                     onTap: (){
-                      Get.to(AntrenmanPage());
+                      Get.to(BottomNavBar3());
                     },
                   ),
                 ),
@@ -259,7 +266,7 @@ class NavBar  extends StatelessWidget {
                     leading: Image(image: AssetImage('assets/beslenme-gri.png'),height: 25,),
                     title: Text('BESLENME PROGRAMI',style: TextStyle(color: Colors.black, fontSize: 13.0),),
                     onTap: (){
-                      Get.to(BeslenmePage());
+                      Get.to(BottomNavBar4());
                     },
                   ),
                 ),
@@ -283,10 +290,9 @@ class NavBar  extends StatelessWidget {
                   child: ListTile(
                     leading: Image(image: AssetImage('assets/percent-gri.png'),height: 25,),
                     title: Text('SANA ÖZEL İNDİRİMLER',style: TextStyle(color: Colors.black, fontSize: 13.0),),
-                    onTap: () => showModalBottomSheet(
-                      context: context,
-                      builder: (context) => buildSheet(),
-                    ),
+                    onTap: (){
+                      Get.to(IndirimPage());
+                    },
                   ),
                 ),
               ),
@@ -359,6 +365,9 @@ class NavBar  extends StatelessWidget {
                   child: ListTile(
                     leading: Image(image: AssetImage('assets/ayarlar-gri.png'),height: 25,),
                     title: Text("AYARLAR",style: TextStyle(color: Colors.black, fontSize: 13.0),),
+                    onTap: (){
+                      Get.to(AyarlarPage());
+                    },
                   ),
                 ),
               ),
@@ -383,7 +392,7 @@ class NavBar  extends StatelessWidget {
                     leading: Image(image: AssetImage('assets/logout-gri.png'),height: 25,),
                     title: Text("ÇIKIŞ YAP",style: TextStyle(color: Colors.black, fontSize: 13.0),),
                     onTap: (){
-                      Get.to(MyHomePage());
+                      Get.to(MyHomePage(swap: false,));
                     },
                   ),
                 ),
@@ -665,6 +674,7 @@ Widget buildSheet() => Container(
   ),
 );
 
+final List<String> items = new List<String>.generate(2, (i)=>"Items ${i+1}");
 Widget buildSheet2() => Container(
   padding: EdgeInsets.all(0),
   decoration: BoxDecoration(
@@ -674,518 +684,103 @@ Widget buildSheet2() => Container(
     ),
     color: Colors.white,
   ),
-  child: ListView(
-    children: [
-      Padding(
-        padding: EdgeInsets.only(left: 0, bottom:15, right:0, top:20),
-        child: Container(
+  child: ListView.builder(
+    itemCount: items.length,
+    itemBuilder: (context, index) {
+      final item = items[index];
+      return Dismissible(
+        key: Key(item),
+        onDismissed: (direction) {
+            items.removeAt(index);
+        },
+        background: Container(color: Colors.red),
+        child:  Container(
+          margin: EdgeInsets.only(left: 0, bottom:0, right:0, top:0),
+          padding: EdgeInsets.only(left: 0, bottom:0, right:0, top:0),
           alignment: Alignment.center,
-        child: Text('BİLDİRİMLER', style: TextStyle(color: Colors.deepOrange, fontSize: 17.0),),
-        ),
-      ),
-      Container(
-        margin: EdgeInsets.only(left: 0, bottom:0, right:0, top:0),
-        padding: EdgeInsets.only(left: 0, bottom:0, right:0, top: 0),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [
-              Colors.white,
-              Colors.white,
-            ],
-          ),
-          borderRadius: BorderRadius.all(Radius.zero),
-        ),
-        child: Row(
-          children: [
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 5, bottom:0, right:0, top: 10),
-                child: Text('1 Haftalık Premium hesabınıza tanımlanmıştır', style: TextStyle(color: Colors.black, fontSize: 13.0),),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 5, bottom:0, right:80, top: 0),
-                child: Text('Bildirim 2.satır için konuyu uzat.', style: TextStyle(color: Colors.black, fontSize: 13.0),),
-                ),
-                Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 0, bottom:0, right:10, top: 10),
-                    child: Icon(
-                      Icons.access_time,
-                      color:Colors.grey,
-                      size:15,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 0, bottom:0, right:110, top: 10),
-                    child: Text('14 Ekim 2021 - 22:00', style: TextStyle(color: Colors.grey, fontSize: 13.0),),
-                ),
-                ]
-                ),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey),
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                Colors.white,
+                Colors.white,
               ],
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 21.3, bottom: 0, right:0, top: 0),
-              child:Container(
-                  child: GestureDetector(
-                    onTap: (){
-                      Get.to;
-                    },
-                    child: Container(
-                      height: 100.0,
-                      width: 100.0,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: [
-                            Colors.redAccent,
-                            Colors.redAccent,
-                          ],
+            borderRadius: BorderRadius.all(Radius.zero),
+          ),
+          child: Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 20, bottom: 20, right:0, top: 20),
+                child:Container(
+                    child: GestureDetector(
+                      onTap: (){
+                        Get.to;
+                      },
+                      child: Container(
+                        height: 60.0,
+                        width: 60.0,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Colors.deepOrange,
+                              Colors.orange,
+                            ],
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
                         ),
-                        borderRadius: BorderRadius.all(Radius.zero),
-                      ),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 0, bottom: 5, right:0, top: 25),
-                            child: Icon(
-                              Icons.delete_forever_outlined,
-                              color:Colors.white,
-                              size:30,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('assets/elmas.png'),
+                              scale: 2,
                             ),
                           ),
-                          Text('Bildirimi Sil', style: TextStyle(color: Colors.white, fontSize: 13.0),),
-                        ],
-                      ),
-                    ),
-                  )
-              ),
-            ),
-          ],
-        ),
-      ),
-      Container(
-        margin: EdgeInsets.only(left: 0, bottom:0, right:0, top:0),
-        padding: EdgeInsets.only(left: 0, bottom:0, right:0, top: 0),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [
-              Colors.white,
-              Colors.white,
-            ],
-          ),
-          borderRadius: BorderRadius.all(Radius.zero),
-        ),
-        child: Row(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 20, bottom: 20, right:0, top: 20),
-              child:Container(
-                  child: GestureDetector(
-                    onTap: (){
-                      Get.to;
-                    },
-                    child: Container(
-                      height: 60.0,
-                      width: 60.0,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.deepOrange,
-                            Colors.orange,
-                          ],
                         ),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/elmas.png'),
-                            scale: 2,
+                    )
+                ),
+              ),
+              Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left:0, bottom:0, right:0, top: 25),
+                    child: Text("Premium'unuzun süresi bitti. Hemen", style: TextStyle(color: Colors.black, fontSize: 13.0),),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left:0, bottom:0, right:80, top: 0),
+                    child: Text('Yenilemek için tıklayın.', style: TextStyle(color: Colors.black, fontSize: 13.0),),
+                  ),
+                  Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 30, bottom:20, right:5, top: 10),
+                          child: Icon(
+                            Icons.access_time,
+                            color:Colors.grey,
+                            size:15,
                           ),
                         ),
-                      ),
-                    ),
-                  )
-              ),
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top: 25),
-                  child: Text("Premium'unuzun süresi bitti. Hemen", style: TextStyle(color: Colors.black, fontSize: 13.0),),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left:0, bottom:0, right:80, top: 0),
-                  child: Text('Yenilemek için tıklayın.', style: TextStyle(color: Colors.black, fontSize: 13.0),),
-                ),
-                Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 30, bottom:20, right:5, top: 10),
-                        child: Icon(
-                          Icons.access_time,
-                          color:Colors.grey,
-                          size:15,
+                        Padding(
+                          padding: EdgeInsets.only(left: 0, bottom:20, right:100, top: 10),
+                          child: Text('14 Ekim 2021 - 22:00', style: TextStyle(color: Colors.grey, fontSize: 13.0),),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 0, bottom:20, right:100, top: 10),
-                        child: Text('14 Ekim 2021 - 22:00', style: TextStyle(color: Colors.grey, fontSize: 13.0),),
-                      ),
-                    ]
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-      Container(
-        margin: EdgeInsets.only(left: 0, bottom:0, right:0, top:0),
-        padding: EdgeInsets.only(left: 0, bottom:0, right:0, top: 0),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [
-              Colors.white,
-              Colors.white,
+                      ]
+                  ),
+                ],
+              ),
             ],
           ),
-          borderRadius: BorderRadius.all(Radius.zero),
         ),
-        child: Row(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 20, bottom: 20, right:30, top: 20),
-              child:Container(
-                  child: GestureDetector(
-                    onTap: (){
-                      Get.to;
-                    },
-                    child: Container(
-                      height: 60.0,
-                      width: 60.0,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.deepPurple,
-                            Colors.deepPurple,
-                          ],
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/getir.png'),
-                            fit: BoxFit.fill,
-                          ),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                      ),
-                    ),
-                  )
-              ),
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left:0, bottom:0, right:40, top: 25),
-                  child: Text("Getir'de 1 hafta boyunca sporcu", style: TextStyle(color: Colors.black, fontSize: 13.0),),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top: 0),
-                  child: Text('ürünlerinde geçerli %20 indiriminiz var!', style: TextStyle(color: Colors.black, fontSize: 13.0),),
-                ),
-                Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 0, bottom:20, right:5, top: 10),
-                        child: Icon(
-                          Icons.access_time,
-                          color:Colors.grey,
-                          size:15,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 0, bottom:20, right:80, top: 10),
-                        child: Text('14 Ekim 2021 - 22:00', style: TextStyle(color: Colors.grey, fontSize: 13.0),),
-                      ),
-                    ]
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-      Container(
-        margin: EdgeInsets.only(left: 0, bottom:0, right:0, top:0),
-        padding: EdgeInsets.only(left: 0, bottom:0, right:0, top: 0),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [
-              Colors.white,
-              Colors.white,
-            ],
-          ),
-          borderRadius: BorderRadius.all(Radius.zero),
-        ),
-        child: Row(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 20, bottom: 20, right:30, top: 20),
-              child:Container(
-                  child: GestureDetector(
-                    onTap: (){
-                      Get.to;
-                    },
-                    child: Container(
-                      height: 60.0,
-                      width: 60.0,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.pink[50]!,
-                            Colors.pink[50]!,
-                          ],
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/barbell.png'),
-                            scale: 2,
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-              ),
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left:0, bottom:0, right:10, top: 25),
-                  child: Text("Talep ettiğiniz yeni antrenman programı", style: TextStyle(color: Colors.black, fontSize: 13.0),),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top: 0),
-                  child: Text('hazırlandı, Antrenmanlarında görebilirsin!', style: TextStyle(color: Colors.black, fontSize: 13.0),),
-                ),
-                Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 0, bottom:20, right:5, top: 10),
-                        child: Icon(
-                          Icons.access_time,
-                          color:Colors.grey,
-                          size:15,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 0, bottom:20, right:100, top: 10),
-                        child: Text('14 Ekim 2021 - 22:00', style: TextStyle(color: Colors.grey, fontSize: 13.0),),
-                      ),
-                    ]
-                ),
-              ],
-            ),
-
-          ],
-        ),
-      ),
-      Container(
-        margin: EdgeInsets.only(left: 0, bottom:0, right:0, top:0),
-        padding: EdgeInsets.only(left: 0, bottom:0, right:0, top: 0),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [
-              Colors.white,
-              Colors.white,
-            ],
-          ),
-          borderRadius: BorderRadius.all(Radius.zero),
-        ),
-        child: Row(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 20, bottom: 20, right:0, top: 20),
-              child:Container(
-                  child: GestureDetector(
-                    onTap: (){
-                      Get.to;
-                    },
-                    child: Container(
-                      height: 60.0,
-                      width: 60.0,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.deepOrange,
-                            Colors.orange,
-                          ],
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/elmas.png'),
-                            scale: 2,
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-              ),
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top: 25),
-                  child: Text("Premium'unuzun süresi bitti. Hemen", style: TextStyle(color: Colors.black, fontSize: 13.0),),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left:0, bottom:0, right:80, top: 0),
-                  child: Text('Yenilemek için tıklayın.', style: TextStyle(color: Colors.black, fontSize: 13.0),),
-                ),
-                Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 30, bottom:20, right:5, top: 10),
-                        child: Icon(
-                          Icons.access_time,
-                          color:Colors.grey,
-                          size:15,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 0, bottom:20, right:100, top: 10),
-                        child: Text('14 Ekim 2021 - 22:00', style: TextStyle(color: Colors.grey, fontSize: 13.0),),
-                      ),
-                    ]
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-      Container(
-        margin: EdgeInsets.only(left: 0, bottom:0, right:0, top:0),
-        padding: EdgeInsets.only(left: 0, bottom:0, right:0, top: 0),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [
-              Colors.white,
-              Colors.white,
-            ],
-          ),
-          borderRadius: BorderRadius.all(Radius.zero),
-        ),
-        child: Row(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 20, bottom: 20, right:30, top: 20),
-              child:Container(
-                  child: GestureDetector(
-                    onTap: (){
-                      Get.to;
-                    },
-                    child: Container(
-                      height: 60.0,
-                      width: 60.0,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.deepPurple,
-                            Colors.deepPurple,
-                          ],
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/Yemeksepeti.png'),
-                            fit: BoxFit.fill,
-                          ),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                      ),
-                    ),
-                  )
-              ),
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left:0, bottom:0, right:27, top: 25),
-                  child: Text("Banabi'de 1 hafta boyunca sporcu", style: TextStyle(color: Colors.black, fontSize: 13.0),),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left:0, bottom:0, right:0, top: 0),
-                  child: Text('ürünlerinde geçerli %20 indiriminiz var!', style: TextStyle(color: Colors.black, fontSize: 13.0),),
-                ),
-                Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 0, bottom:20, right:5, top: 10),
-                        child: Icon(
-                          Icons.access_time,
-                          color:Colors.grey,
-                          size:15,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 0, bottom:20, right:80, top: 10),
-                        child: Text('14 Ekim 2021 - 22:00', style: TextStyle(color: Colors.grey, fontSize: 13.0),),
-                      ),
-                    ]
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    ],
+      );
+    },
   ),
 );
+
 
 Widget buildSheet3() => Container(
   padding: EdgeInsets.all(0),
@@ -1420,7 +1015,7 @@ Widget buildSheet4() => Container(
             child:Container(
                 child: GestureDetector(
                   onTap: (){
-                    Get.to;
+                    Get.to(CreateProfile());
                   },
                   child: Container(
                     height: 50.0,
